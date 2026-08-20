@@ -10,6 +10,7 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 import logo from "../../assets/logo.jpeg";
+import { Link } from "react-router-dom";
 
 const CONTACT_EMAIL = "office@nirinepal.org";
 
@@ -67,13 +68,15 @@ const NAV_LINKS = [
 
 function Seal() {
   return (
-    <img
-      src={logo}
-      alt="NIRI Logo"
-      width={60}
-      height={60}
-      className="w-[60px] h-[60px] object-contain shrink-0"
-    />
+    <Link to="/">
+      <img
+        src={logo}
+        alt="NIRI Logo"
+        width={60}
+        height={60}
+        className="w-[60px] h-[60px] object-contain shrink-0"
+      />
+    </Link>
   );
 }
 
@@ -383,7 +386,7 @@ export default function Navbar() {
 
           <div className="hidden lg:block">
             <a
-              href="#contact"
+              href="contact"
               className="px-5 py-2.5 bg-[#c8102e] text-white text-sm font-semibold tracking-wide
                        hover:bg-[#a80d26] transition-colors
                        focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b1f5c]"

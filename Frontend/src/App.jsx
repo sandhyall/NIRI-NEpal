@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Component/UserLayout/Layout";
 import Landing from "./Component/UserLayout/Landing";
+import Contactus from "./Pages/Contactus";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout/>} >
         <Route index element={<Landing/>}/>
+        <Route path="/contact" element={<Contactus/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
