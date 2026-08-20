@@ -29,11 +29,11 @@ const TOP_BAR_BUTTONS = [
 const NAV_LINKS = [
   {
     label: "About Us",
-    href: "#about",
+    href: "about",
     children: [
-      { label: "Our Mission", href: "#mission" },
-      { label: "Our History", href: "#history" },
-      { label: "Board Members", href: "#board" },
+      { label: "Our Mission", href: "about" },
+      { label: "Our Members", href: "member" }, 
+      { label: "Board Members", href: " BoardOfDirectors" },
     ],
   },
   {
