@@ -40,30 +40,36 @@ const NAV_LINKS = [
     label: "Investigators",
     href: "#investigators",
     children: [
-      { label: "Current Investigators", href: "#current" },
-      { label: "Become an Investigator", href: "#join" },
+      { label: "Current Investigators", href: "current" },
+      { label: "Become an Investigator", href: "invest" },
     ],
   },
-  { label: "Projects", href: "#projects" },
+  { label: "Projects", href: "project" },
   {
-    label: "Get Involved",
-    href: "#get-involved",
-    children: [
-      { label: "Volunteer", href: "#volunteer" },
-      { label: "Donate", href: "#donate" },
-      { label: "Partner With Us", href: "#partner" },
-    ],
-  },
+  label: "Get Involved",
+  href: "#get-involved",
+  children: [
+    { label: "Volunteer", href: "vol" },
+    { label: "Research Internship", href: "internship" },
+    { label: "Join NIRI Community", href: "#join-community" },
+    { label: "Donate", href: "donate" },
+    { label: "Partner With Us", href: "partner" },
+  ],
+},
   {
     label: "Activities",
     href: "#activities",
     children: [
-      { label: "Events", href: "#events" },
-      { label: "News", href: "#news" },
+      { label: "Events", href: "event" },
+      { label: "News", href: "news" },
+         { label: "Publication", href: "publication" },
+          { label: "Newsletter", href: "newspaper" },
+           { label: "Blogs & Article", href: "blog" },
+          
     ],
   },
-  { label: "Support", href: "#support" },
-  { label: "Donation", href: "#Donation" },
+  { label: "Support", href: "support" },
+
 ];
 
 function Seal() {
