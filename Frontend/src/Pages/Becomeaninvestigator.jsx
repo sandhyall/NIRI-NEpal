@@ -45,7 +45,7 @@ const BecomeAnInvestigator = () => {
         </h1>
         <p className="text-lg text-gray-600 leading-relaxed">
           Collaborate with passionate scholars, data scientists, and field
-          experts to drive high-impact social science research that shapes
+          experts to drive high-impact research that shapes
           policy and community development.
         </p>
       </div>

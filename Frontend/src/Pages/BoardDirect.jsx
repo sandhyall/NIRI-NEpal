@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiFacebook, FiLinkedin, FiYoutube, FiUser } from "react-icons/fi";
+import { FiFacebook, FiLinkedin, FiYoutube } from "react-icons/fi";
 
 const FontImport = () => (
   <style>{`
@@ -10,20 +10,22 @@ const FontImport = () => (
   `}</style>
 );
 
-// TODO: assign each director's real category from your records —
-// values must match one of the `tabs` keys below.
+// Category values must match one of the `tabs` keys below.
 const directors = [
-  { name: "Dip Raj Thapa", credential: "PhD", category: "chairperson", socials: ["linkedin", "youtube"] },
-  { name: "Dipak Uprety", credential: "", category: "natural-applied", socials: ["facebook"] },
-  { name: "Ekanath Khatiwada", credential: "", category: "natural-applied", socials: ["facebook", "linkedin"] },
-  { name: "Hem Raj Dhakal", credential: "PhD", category: "social-sciences", socials: ["linkedin"] },
-  { name: "Om Kurmi", credential: "PhD", category: "social-sciences", socials: ["linkedin", "youtube", "facebook"] },
-  { name: "Puspa Raj Pant", credential: "PhD", category: "natural-applied", socials: ["linkedin", "facebook"] },
-  { name: "Rajendra Pangeni", credential: "", category: "natural-applied", socials: ["linkedin", "youtube"] },
-  { name: "Reshma Shakya", credential: "", category: "finance-admin", socials: ["linkedin", "facebook"] },
-  { name: "Shyam Dumre", credential: "", category: "social-sciences", socials: ["facebook", "linkedin"] },
+  { name: "Puspa Raj Pant", credential: "PhD", category: "chairperson", socials: ["linkedin", "facebook"] },
+  { name: "Om Kurmi", credential: "PhD", category: "natural-applied", socials: ["linkedin", "youtube", "facebook"] },
   { name: "Tara Sigdel", credential: "PhD", category: "natural-applied", socials: ["linkedin", "youtube"] },
-  { name: "Tulasi Acharya", credential: "PhD", category: "finance-admin", socials: ["facebook", "linkedin"] },
+  { name: "Hem Raj Dhakal", credential: "PhD", category: "social-sciences", socials: ["linkedin"] },
+  { name: "Tulasi Acharya", credential: "PhD", category: "social-sciences", socials: ["facebook", "linkedin"] },
+  { name: "Rajendra Pangeni", credential: "", category: "executive", socials: ["linkedin", "youtube"] },
+
+  // TODO: not in the role list, so categories are unconfirmed.
+  // Empty category = shown only under "Board of Directors".
+  { name: "Dip Raj Thapa", credential: "PhD", category: "", socials: ["linkedin", "youtube"] },
+  { name: "Dipak Uprety", credential: "", category: "", socials: ["facebook"] },
+  { name: "Ekanath Khatiwada", credential: "", category: "", socials: ["facebook", "linkedin"] },
+  { name: "Reshma Shakya", credential: "", category: "finance-admin", socials: ["linkedin", "facebook"] },
+  { name: "Shyam Dumre", credential: "", category: "", socials: ["facebook", "linkedin"] },
 ];
 
 const tabs = [
@@ -31,6 +33,7 @@ const tabs = [
   { key: "chairperson", label: "Chairperson" },
   { key: "natural-applied", label: "Directors (Natural & Applied Sciences)" },
   { key: "social-sciences", label: "Directors (Social Sciences)" },
+  { key: "executive", label: "Executive Director" },
   { key: "finance-admin", label: "Director (Finance & Admin.)" },
 ];
 
@@ -50,6 +53,11 @@ const accents = ["#0b1f5c", "#081540", "#0e2670"];
 function accentFor(name) {
   const sum = name.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
   return accents[sum % accents.length];
+}
+
+function roleLabel(category) {
+  const match = tabs.find((t) => t.key === category && t.key !== "all");
+  return match ? match.label : "Director";
 }
 
 function DirectorCard({ person }) {
@@ -80,8 +88,7 @@ function DirectorCard({ person }) {
           )}
         </h4>
         <p className="text-[0.75rem] tracking-[0.08em] uppercase text-[#4b5957] mt-1.5">
-          {tabs.find((t) => t.key === person.category)?.label.replace(/^Board of Directors$/, "Director") ||
-            "Board of Directors"}
+          {roleLabel(person.category)}
         </p>
 
         {person.socials?.length > 0 && (

@@ -527,13 +527,14 @@ const NAV_LINKS = [
       { label: "Our Mission", to: "about" },
       { label: "Our Members", to: "member" },
       { label: "Board Members", to: "BoardOfDirectors" },
+      { label: "Our Staff", to: "BoardOfDirectors" },
     ],
   },
   {
     label: "Investigators",
     to: "#investigators",
     children: [
-      { label: "Current Investigators", to: "current" },
+      { label: "NIRI Investigators", to: "current" },
       { label: "Become an Investigator", to: "invest" },
     ],
   },
